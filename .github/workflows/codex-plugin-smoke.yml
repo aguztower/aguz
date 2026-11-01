@@ -1,27 +1,6 @@
 name: codex-plugin-smoke
 
 on:
-  pull_request:
-    paths:
-      - ".agents/plugins/marketplace.json"
-      - "plugins/*/plugin.json"
-      - "plugins/*/.codex-plugin/plugin.json"
-      - "plugins/*/.mcp.json"
-      - "plugins/*/mcp.json"
-      - "plugins/*/skills/**"
-      - "eng/codex/**"
-      - ".github/workflows/codex-plugin-smoke.yml"
-  push:
-    branches: [main]
-    paths:
-      - ".agents/plugins/marketplace.json"
-      - "plugins/*/plugin.json"
-      - "plugins/*/.codex-plugin/plugin.json"
-      - "plugins/*/.mcp.json"
-      - "plugins/*/mcp.json"
-      - "plugins/*/skills/**"
-      - "eng/codex/**"
-      - ".github/workflows/codex-plugin-smoke.yml"
   workflow_dispatch:
 
 permissions:
