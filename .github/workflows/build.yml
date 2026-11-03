@@ -1,4 +1,4 @@
-name: Bold
+name: bold
 
 on:
   workflow_dispatch:
